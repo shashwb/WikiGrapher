@@ -1,0 +1,28 @@
+# FRONTEND AND BACKEND CONTAINER ORCHESTRATION
+# todo: implement database
+
+version: "3.8"
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:80" #map the react app to local port 3000
+    depends_on:
+      - backend
+
+  backend:
+    build: ./backend
+    ports:
+      - "5000:5000"
+    environment:
+      - DATABASE_URL=mysql://root:root@db/wikigrapher
+
+  db:
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD: root
+      - MYSQL_DATABASE: wikigrapher
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes: db_data
