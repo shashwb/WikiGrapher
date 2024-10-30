@@ -14,12 +14,31 @@ const db = mysql.createConnection({
 });
 
 /** connect */
+db.connect((err) => {
+  if (err) {
+    console.error("Error connecting to the database");
+  } else {
+    console.log("Connected to MySQL database");
+  }
+});
 
 app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {
   res.send("Hello this is Seth, backend is running");
+});
+
+/** ---------------- API ROUTES **/
+
+/** fetch a list of categories */
+app.get("/categories", (req, res) => {
+  db.query("SELECT * FROM categories", (err, results) => {
+    if (err) {
+      return res.status(500).send(err);
+    }
+    res.json(results);
+  });
 });
 
 app.listen(PORT, () => {
