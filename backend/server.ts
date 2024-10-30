@@ -1,8 +1,19 @@
 import express from "express";
 import cors from "cors";
+import mysql from "mysql2";
 
 const app = express();
 const PORT = process.env.PORT || 500;
+
+/** create a db connection instance */
+const db = mysql.createConnection({
+  host: "db",
+  user: "root",
+  password: "root",
+  database: "wikigrapher",
+});
+
+/** connect */
 
 app.use(cors());
 app.use(express.json());
