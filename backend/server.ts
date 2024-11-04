@@ -37,9 +37,12 @@ app.get("/categories", (req, res) => {
     if (err) {
       return res.status(500).send(err);
     }
+    console.log("hello!");
     res.json(results);
   });
 });
+
+/** ---------------- (end) API ROUTES **/
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
