@@ -1,0 +1,17 @@
+# official node base image
+FROM node:18
+
+# working directory inside container
+WORKDIR /app
+
+# blueprint for all dependencies
+COPY package*.json ./
+
+# install dependencies
+RUN npm install
+
+# copy the rest of the files in bulid context (/frontend)
+#   this will not copy node_modules (because of .dockerignore)
+COPY . .
+
+CMD ["npm", "start"]

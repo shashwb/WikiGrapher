@@ -20,4 +20,7 @@ COPY . .
 EXPOSE 3001
 
 # start server (use ts-node to run typescript files)
-CMD ["npx", "ts-node", "server.ts"]
+# CMD ["npx", "ts-node", "server.ts"]
+
+# used for hot reloading in development
+CMD ["npx", "nodemon", "server.ts"] 
