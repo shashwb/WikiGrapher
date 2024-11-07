@@ -5,10 +5,9 @@ import "./App.css";
 const App: React.FC = () => {
   /** type: array of strings */
   const [categories, getCategories] = useState<string[]>([]);
-  console.log("loading in the <App/> component");
   return (
     <div>
-      <h1>Wikipedia Categories, right?</h1>
+      <h1>Wikipedia Categories</h1>
       <ul></ul>
     </div>
   );

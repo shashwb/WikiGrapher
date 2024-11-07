@@ -13,8 +13,6 @@ const db = mysql.createConnection({
   database: "wikigrapher",
 });
 
-console.log("<<< SERVER >>> hello world!");
-
 /** connect */
 db.connect((err) => {
   if (err) {
