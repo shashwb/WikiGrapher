@@ -3,7 +3,7 @@ import cors from "cors";
 import mysql from "mysql2";
 
 const app = express();
-const PORT = process.env.PORT || 500;
+const PORT = process.env.PORT || 3001;
 
 /** create a db connection instance */
 const db = mysql.createConnection({
