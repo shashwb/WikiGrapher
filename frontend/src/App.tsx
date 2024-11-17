@@ -1,27 +1,25 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-const App: React.FC = () => {
-  console.log("app!");
+/** pages */
+import Home from "./pages/Home";
+import GraphView from "./pages/GraphView";
+import Dashboard from "./pages/Dashboard";
+import Login from "./pages/Login";
 
-  return <div>testing</div>;
+const App: React.FC = () => {
+  const layout = (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/graph" element={<GraphView />} />
+      </Routes>
+    </Router>
+  );
+
+  return layout;
 };
 
 export default App;
-
-// import React from "react";
-// import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-// import "./App.css";
-
-// const App: React.FC = () => {
-//   console.log("app!");
-
-//   return (
-//     <div>test</div>
-//     // <Router>
-//     //   <Routes>{/* <Route path="/" element={<div>Home Page</div>} /> */}</Routes>
-//     // </Router>
-//   );
-// };
-
-// export default App;
