@@ -3,15 +3,20 @@ import { Link } from "react-router-dom";
 
 const Navbar: React.FC = () => {
   return (
-    <>
-      <nav>
-        {/* eventually a LOGO will go here */}
-        <Link to="/">Wikigrapher</Link>
+    <nav className={"bg-blue-600 p-4 shadow-lg"}>
+      <div className="container mx-auto flex justify-between items-center">
+        {/* first */}
+        <Link to="/" className="text-white text-xl font-bold">
+          <div>WikiGrapher</div>
+        </Link>
+        {/* second */}
         <div>
-          <Link to="login">Login</Link>
+          <Link to="/login" className="text-white hover:text-blue-200">
+            Login
+          </Link>
         </div>
-      </nav>
-    </>
+      </div>
+    </nav>
   );
 };
 
