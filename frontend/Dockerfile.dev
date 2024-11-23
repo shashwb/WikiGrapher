@@ -4,6 +4,9 @@ FROM node:18
 # working directory inside container
 WORKDIR /app
 
+# testing to make sure it's running in DEV mode
+RUN echo "running in DEVELOPMENT MODE"
+
 # blueprint for all dependencies
 COPY package*.json ./
 

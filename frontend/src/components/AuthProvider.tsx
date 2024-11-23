@@ -7,8 +7,8 @@ const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   return (
     <Auth0Provider
-      domain="YOUR_AUTH0_DOMAIN"
-      clientId="YOUR_AUTH0_CLIENT_ID"
+      domain="dev-3vinuj746r0iz12j.us.auth0.com"
+      clientId="5tqRE0MTDwoIEJZtdKism0ymgHEmCoFD"
       redirectUri={window.location.origin}
     >
       {children}

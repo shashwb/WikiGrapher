@@ -7,7 +7,7 @@ const Navbar: React.FC = () => {
       <div className="container mx-auto flex justify-between items-center">
         {/* first */}
         <Link to="/" className="text-white text-xl font-bold">
-          <div>WikiGrapher</div>
+          <div>WikiGraph</div>
         </Link>
         {/* second */}
         <div>
