@@ -1,8 +1,15 @@
 /** page for users to log in */
-import React from "react";
+import React, { useEffect } from "react";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Login: React.FC = () => {
-  return <h1>Login Component</h1>;
+  const { loginWithRedirect } = useAuth0();
+
+  useEffect(() => {
+    loginWithRedirect();
+  }, [loginWithRedirect]);
+
+  return <div>Redirecting...</div>;
 };
 
 export default Login;
