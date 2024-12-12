@@ -5,8 +5,10 @@ const AuthButtons: React.FC = () => {
   /** auth0 hook provides the following contexts */
   const { loginWithDirect, logout, isAuthenticated } = useAuth0();
 
+  console.log("AuthButtons...isAuthenticated", isAuthenticated);
   return (
     <>
+      <div>Auth Buttons</div>
       <div>
         {!isAuthenticated && (
           <button onClick={() => loginWithDirect()}>Login</button>

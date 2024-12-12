@@ -6,12 +6,12 @@ const Dashboard: React.FC = () => {
   const { isAuthenticated } = useAuth0();
 
   if (!isAuthenticated) {
-    return <div>Log In to view your Dashboard</div>;
+    return <div>Log In to view your Dashboard...</div>;
   }
 
   return (
     <div>
-      <h1>Your Dasboard</h1>
+      <h1>You are logged in! Welcome to your Dashboard!</h1>
       {/* {user specific components here} */}
     </div>
   );
