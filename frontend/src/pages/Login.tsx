@@ -5,11 +5,18 @@ import { useAuth0 } from "@auth0/auth0-react";
 const Login: React.FC = () => {
   const { loginWithRedirect } = useAuth0();
 
-  useEffect(() => {
-    loginWithRedirect();
-  }, [loginWithRedirect]);
+  // useEffect(() => {
+  //   loginWithRedirect();
+  // }, [loginWithRedirect]);
 
-  return <div>Redirecting...</div>;
+  /** styled */
+  return (
+    <div className="flex items-center justify-center min-h-screen bg-blue-50">
+      <div className="text-lg text-gray-700">Redirecting...</div>
+    </div>
+  );
+
+  // return <div>Redirecting...</div>;
 };
 
 export default Login;
