@@ -1,13 +1,16 @@
-import express from "express";
+import express, { Request, Response, NextFunction } from "express";
 import cors from "cors";
 import mysql from "mysql2";
+
+import jwt from "express-jwt";
+import jwksRsa from "jwks-rsa";
+import { expressjwt } from "express-jwt";
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-/** validate access token from Auth0 */
-const jwt = require("express-jwt");
-const jwksRsa = require("jwks-rsa");
+app.use(cors());
+app.use(express.json());
 
 /** create a db connection instance */
 const db = mysql.createConnection({
@@ -26,14 +29,24 @@ db.connect((err) => {
   }
 });
 
-app.use(cors());
-app.use(express.json());
-
 app.get("/", (req, res) => {
   res.send("Hello this is Seth, backend is running");
 });
 
 /** ---------------- VALIDATE TOKEN **/
+
+const checkJWT = expressjwt({
+  secret: jwksRsa.expressJwtSecret({
+    cache: true,
+    rateLimit: true,
+    jwksRequestsPerMinute: 5,
+    jwksUri: `https://dev-3vinuj746r0iz12j.us.auth0.com/.well-known/jwks.json`,
+  }),
+  audience: "",
+  issuer: "",
+  algorithms: ["RS256"],
+});
+
 // const checkJWT = jwt({
 //   secret: jwksRsa.expressJwtSecret({
 //     cache: true,
