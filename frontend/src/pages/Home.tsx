@@ -4,8 +4,16 @@ import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const Home: React.FC = () => {
-  const { isAuthenticated } = useAuth0();
-  console.log("isAuthenticated: ", isAuthenticated);
+  const { isAuthenticated, isLoading } = useAuth0();
+
+  if (isLoading) return <div>Loading</div>;
+
+  console.log(
+    "<Home /> :: isAuthenticated: ",
+    isAuthenticated,
+    "isLoading: ",
+    isLoading
+  );
 
   if (isAuthenticated) {
     alert("AUTHENTICATED -- GREAT JOB!");
