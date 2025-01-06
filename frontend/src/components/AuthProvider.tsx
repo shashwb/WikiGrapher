@@ -1,39 +1,28 @@
 import React from "react";
 import { Auth0Provider } from "@auth0/auth0-react";
-import { redirect } from "react-router-dom";
 
-/** Provide authentication to all the child components within the app */
+/** Provides authentication to all child components within the app */
 const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
+  const domain = "dev-3vinuj746r0iz12j.us.auth0.com"; // Auth0 tenant domain
+  const clientId = "5tqRE0MTDwoIEJZtdKism0ymgHEmCoFD"; // Auth0 client ID
+  const redirectUri = window.location.origin; // URL to redirect back to after authentication
+
+  /**
+   * Wrap the children in the Auth0Provider component
+   * @param children React components to be wrapped
+   * @returns Auth0Provider component with the configured domain, client ID, and redirect URI
+   */
   return (
     <Auth0Provider
-      domain="dev-3vinuj746r0iz12j.us.auth0.com"
-      clientId="5tqRE0MTDwoIEJZtdKism0ymgHEmCoFD"
-      authorizationParams={{
-        redirect_uri: window.location.origin,
-      }}
+      domain={domain}
+      clientId={clientId}
+      authorizationParams={{ redirect_uri: redirectUri }}
     >
       {children}
     </Auth0Provider>
   );
-  // return (
-  //   <Auth0Provider
-  //     domain="dev-3vinuj746r0iz12j.us.auth0.com"
-  //     clientId="5tqRE0MTDwoIEJZtdKism0ymgHEmCoFD"
-  //     redirectUri={window.location.origin}
-  //     audience="https://wikigraph/api"
-  //     authorizationParams={{
-  //       // redirect_uri: window.location.origin,
-  //       redirect_uri: "http://localhost:3000",
-  //       audience: "https://wikigraph/api",
-  //       // audience: "https://dev-3vinuj746r0iz12j.us.auth0.com/api/v2/",
-  //       // scope: "read:graphs",
-  //     }}
-  //   >
-  //     {children}
-  //   </Auth0Provider>
-  // );
 };
 
 export default AuthProvider;
