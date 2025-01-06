@@ -17,8 +17,6 @@ const Login: React.FC = () => {
       <div className="text-lg text-gray-700">Redirecting...</div>
     </div>
   );
-
-  // return <div>Redirecting...</div>;
 };
 
 export default Login;

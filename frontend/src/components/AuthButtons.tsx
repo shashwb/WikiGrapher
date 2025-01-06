@@ -9,7 +9,6 @@ import { useAuth0 } from "@auth0/auth0-react";
  * If the user is authenticated, a "Logout" button is displayed.
  */
 const AuthButtons: React.FC = () => {
-  //   alert("hello auth buttons");
   // Destructure authentication functions and status from useAuth0 hook
   const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
 

@@ -13,9 +13,9 @@ const Navbar: React.FC = () => {
         </Link>
         {/* menu */}
         <div className="flex space-x-4">
-          <div>testing 1</div>
+          {/* <div>testing 1</div>
           <div>testing 2</div>
-          <div>testing 3</div>
+          <div>testing 3</div> */}
           <AuthButtons />
         </div>
       </div>
