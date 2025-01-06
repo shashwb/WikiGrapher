@@ -8,18 +8,32 @@ const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   return (
     <Auth0Provider
-      domain="https://dev-3vinuj746r0iz12j.us.auth0.com"
+      domain="dev-3vinuj746r0iz12j.us.auth0.com"
       clientId="5tqRE0MTDwoIEJZtdKism0ymgHEmCoFD"
-      redirectUri={window.location.origin}
       authorizationParams={{
         redirect_uri: window.location.origin,
-        // audience: "https://dev-3vinuj746r0iz12j.us.auth0.com/api/v2/",
-        // scope: "read:current_user update:current_user_metadata",
       }}
     >
       {children}
     </Auth0Provider>
   );
+  // return (
+  //   <Auth0Provider
+  //     domain="dev-3vinuj746r0iz12j.us.auth0.com"
+  //     clientId="5tqRE0MTDwoIEJZtdKism0ymgHEmCoFD"
+  //     redirectUri={window.location.origin}
+  //     audience="https://wikigraph/api"
+  //     authorizationParams={{
+  //       // redirect_uri: window.location.origin,
+  //       redirect_uri: "http://localhost:3000",
+  //       audience: "https://wikigraph/api",
+  //       // audience: "https://dev-3vinuj746r0iz12j.us.auth0.com/api/v2/",
+  //       // scope: "read:graphs",
+  //     }}
+  //   >
+  //     {children}
+  //   </Auth0Provider>
+  // );
 };
 
 export default AuthProvider;
