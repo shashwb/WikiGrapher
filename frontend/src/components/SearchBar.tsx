@@ -27,7 +27,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
 
   return (
     <div className="w-full max-w-2xl text-center">
-      <h2 className="text-3xl font-bold mb-3">Welcome to WikiGraph</h2>
+      <h2 className="text-3xl font-bold mb-6">Welcome to WikiGraph</h2>
       <form
         onSubmit={handleSubmit}
         className="flex flex-row items-center justify-center space-x-4"
