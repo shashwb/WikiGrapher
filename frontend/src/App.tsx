@@ -20,12 +20,12 @@ import NavbarComponent from "./components/NavbarComponent";
  */
 const App: React.FC = () => {
   return (
-    <div className="min-h-screen bg-gray-800 text-gray-100">
-      <Router>
+    <Router>
+      <div className="flex flex-col flex-grow min-h-screen bg-gray-800 text-gray-100">
         {/* Navigation bar */}
         <NavbarComponent />
         {/* Main section with routes */}
-        <main className="container mx-auto p-4">
+        <main className="flex flex-grow container mx-auto p-4">
           <Routes>
             {/* Home page */}
             <Route path="/" element={<Home />} />
@@ -33,8 +33,8 @@ const App: React.FC = () => {
             <Route path="/dashboard" element={<Dashboard />} />
           </Routes>
         </main>
-      </Router>
-    </div>
+      </div>
+    </Router>
   );
 };
 

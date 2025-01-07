@@ -13,7 +13,7 @@ const Home: React.FC = () => {
   ];
 
   return (
-    <main className="flex flex-col px-6 py-4 pt-10 items-center justify-start min-h-screen bg-gray-600/5 rounded-2xl">
+    <div className="flex-grow flex flex-col px-6 py-4 pt-10 items-center justify-start bg-gray-600/5 rounded-2xl">
       {/* search component */}
       <SearchBar
         onSearch={(test) => {
@@ -30,7 +30,7 @@ const Home: React.FC = () => {
         />
         <ArticleCard title="Featured Articles" articles={featuredArticles} />
       </div>
-    </main>
+    </div>
   );
 };
 
