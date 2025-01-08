@@ -147,6 +147,33 @@ app.use((err: any, req: Request, res: Response, next: NextFunction) => {
   }
 });
 
+/** endpoints for application */
+/** currently just mock data */
+const trending = ["Bollywood", "Mahatma Gandhi", "Quantum Physics"];
+const graph = {
+  nodes: [{ id: "Bollywood" }, { id: "India" }, { id: "Movies" }],
+  edges: [
+    { source: "Bollywood", target: "India" },
+    { source: "Bollywood", target: "Movies" },
+  ],
+};
+
+app.get("/api/trending", (req: Request, res: Response) => {
+  res.json(trending);
+});
+
+app.get("/api/article/:title", (req: Request, res: Response) => {
+  res.json({
+    title: req.params.title,
+    content: `Content for ${req.params.title}`,
+    metadata: { hits: 123456, lastUpdated: "2025-01-06", wordCount: 2345 },
+  });
+});
+
+app.get("/api/graph/:title", (req: Request, res: Response) => {
+  res.json(graph);
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });

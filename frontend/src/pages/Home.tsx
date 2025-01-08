@@ -19,11 +19,15 @@ const Home: React.FC = () => {
 
   /** fetch card content */
   useEffect(() => {
-    console.log("<Home.tsx /> :: useEffect");
     const fetchArticles = async () => {
-      const trending = await fetch("/api/trending").then((res) => res);
-      const mostViewed = await fetch("/api/most-viewed").then((res) => res);
-      const featured = await fetch("/api/featured").then((res) => res);
+      const url = "http://localhost:3001";
+      const trending = await fetch(`${url}/api/trending`).then((res) =>
+        res.json()
+      );
+      const mostViewed = await fetch(`${url}/api/mostviewed`).then(
+        (res) => res
+      );
+      const featured = await fetch(`${url}/api/featured}`).then((res) => res);
 
       setTrendingArticles(trending);
       setMostViewedArticles(mostViewed);

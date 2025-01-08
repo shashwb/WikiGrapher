@@ -13,11 +13,14 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ title, articles }) => {
         {title}
       </h3>
       <ul className="mt-4 space-y-2">
-        {/* {articles.map((article, index) => (
-          <li key={index}>
-            <a className="px-2 text-green-200 hover:underline">{article}</a>
-          </li>
-        ))} */}
+        {articles.length > 0 &&
+          articles.map((article, index) => {
+            return (
+              <li key={index}>
+                <a className="px-2 text-green-200 hover:underline">{article}</a>
+              </li>
+            );
+          })}
       </ul>
     </div>
   );
