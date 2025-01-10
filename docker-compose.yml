@@ -8,9 +8,10 @@ services:
       #mount the entire /frontend app directory EXCEPT node_modules
       - "3000:3000"
     volumes:
+      # mount for all of the application code (allows real-time updates on files)
       - ./frontend:/app
       # mount the entire /frontend app directory EXCEPT node_modules
-      - /app/node_modules
+      - /app/node_modules # THIS BECOMES A DOCKER-MANAGED VOLUME
     environment:
       # used for file change detection (esp for Mac or Windows) for React HMR
       - CHOKIDAR_USEPOLLING=true
