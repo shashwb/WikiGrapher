@@ -10,6 +10,7 @@ const GraphView: React.FC = () => {
   const { isAuthenticated } = useAuth0();
 
   useEffect(() => {
+    const svg = d3.select("#graph");
     // const svg = sum([1, 2, 3]);
     // console.log("svg", svg);
   }, []); // run once, on load
@@ -22,6 +23,7 @@ const GraphView: React.FC = () => {
     <>
       <div>
         <h1>Your Graph</h1>
+        <svg id="graph"></svg>
       </div>
     </>
   );

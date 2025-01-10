@@ -16,6 +16,13 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", "node_modules/@auth0/auth0-react"],
+  "include": [
+    "src",
+    "src/pages",
+    "src/components",
+    "frontend/src",
+    "node_modules/@auth0/auth0-react",
+    "node_modules/d3"
+  ],
   "exclude": ["node_modules"]
 }
