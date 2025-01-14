@@ -22,7 +22,8 @@
     "src/components",
     "frontend/src",
     "node_modules/@auth0/auth0-react",
-    "node_modules/d3"
+    "node_modules/d3",
+    "node_modules/@types/react"
   ],
   "exclude": ["node_modules"]
 }
