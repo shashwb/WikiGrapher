@@ -27,10 +27,7 @@ const ArticleView: React.FC<{ articleTitle: string }> = ({ articleTitle }) => {
           </p>
           <p className="text-md text-gray-400 m-4 p-4">{articleContent}</p>
         </div>
-        {/* right pane
-          flex grow is all about how much a flex item should take up available space on container
-        
-        */}
+        {/* right panel */}
         <div className="flex-grow p-6 rounded-xl">
           <GraphVisualizationView />
         </div>
