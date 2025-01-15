@@ -3,6 +3,7 @@
 
 import React from "react";
 import GraphView from "./GraphView";
+import GraphVisualizationView from "./GraphVisualizationView";
 
 const ArticleView: React.FC<{ articleTitle: string }> = ({ articleTitle }) => {
   /** example data */
@@ -15,9 +16,9 @@ const ArticleView: React.FC<{ articleTitle: string }> = ({ articleTitle }) => {
 
   return (
     <>
-      <div className="min-h-screen p-10 mt-20 flex bg-gray-900 text-gray-100">
+      <div className="min-h-screen p-10 mt-20 flex bg-gray-900 text-gray-100 gap-6 rounded-xl">
         {/* left pane */}
-        <div className="flex-1 p-6 overflow-auto bg-gray-800">
+        <div className="bg-gray-700 p-6 rounded-xl">
           <h2 className="text-3xl font-bold m-3">{articleTitle}</h2>
           <p className="text-sm text-gray-400 mb-4">
             Hits: {metadata.hits} | Last Updated: {metadata.lastUpdated} | Word
@@ -26,9 +27,8 @@ const ArticleView: React.FC<{ articleTitle: string }> = ({ articleTitle }) => {
           <p>{articleContent}</p>
         </div>
         {/* right pane */}
-        <div className="flex-1 p-6 border-5 border-gray-300">
-          <h2 className="text-2xl font-semibold mb-4">Graph View</h2>
-          <GraphView />
+        <div className="bg-gray-800 p-6 rounded-xl">
+          <GraphVisualizationView />
         </div>
       </div>
     </>
