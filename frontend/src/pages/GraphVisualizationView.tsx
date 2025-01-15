@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import * as d3 from "d3";
 
 /**
@@ -10,44 +10,60 @@ import * as d3 from "d3";
  */
 
 const GraphVisualizationView = () => {
-  useEffect(() => {
-    const svg = d3.select("#graph").attr("width", 400).attr("height", 400);
+  const svgRef = useRef<SVGSVGElement | null>(null);
 
-    const nodesData = [
-      { id: "Bollywood", x: Math.random() * 400, y: Math.random() * 400 },
-      { id: "India", x: Math.random() * 400, y: Math.random() * 400 },
-      { id: "Movies", x: Math.random() * 400, y: Math.random() * 400 },
+  useEffect(() => {
+    const svgElement = svgRef.current;
+    if (!svgElement) return;
+
+    const { width, height } = svgElement.getBoundingClientRect();
+
+    const nodes = [
+      { id: "Bollywood", x: width * Math.random(), y: height * Math.random() },
+      { id: "India", x: width * Math.random(), y: height * Math.random() },
+      { id: "Movies", x: width * Math.random(), y: height * Math.random() },
     ];
-    const linksData = [
+
+    const links = [
       { source: "Bollywood", target: "India" },
       { source: "Bollywood", target: "Movies" },
     ];
 
     const simulation = d3
-      .forceSimulation(nodesData)
+      .forceSimulation(nodes)
       .force(
         "link",
-        d3.forceLink(linksData).id((node: any) => node.id)
+        d3.forceLink(links).id((node: any) => node.id)
       )
       .force("charge", d3.forceManyBody())
-      .force("center", d3.forceCenter(200, 200));
+      .force("center", d3.forceCenter(width / 2, height / 2));
 
     simulation.on("tick", () => {
-      svg
+      d3.select(svgElement)
         .selectAll("circle")
-        .data(nodesData)
+        .data(nodes)
         .join("circle")
         .attr("cx", (node) => node.x)
         .attr("cy", (node) => node.y)
         .attr("r", 10)
         .attr("fill", "#22c55e");
     });
+
+    return () => {
+      simulation.stop();
+    };
   }, []);
 
   return (
     <div>
       <h2 className="text-2xl font-semibold mb-4">Graph View</h2>
-      <svg id="graph" />
+      <svg
+        ref={svgRef}
+        width="100%"
+        viewBox="0 0 100% 100%"
+        preserveAspectRatio="xMinYMin meet"
+        id="graph"
+      />
     </div>
   );
 };

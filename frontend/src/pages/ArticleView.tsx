@@ -16,18 +16,22 @@ const ArticleView: React.FC<{ articleTitle: string }> = ({ articleTitle }) => {
 
   return (
     <>
-      <div className="min-h-screen p-10 mt-20 flex bg-gray-900 text-gray-100 gap-6 rounded-xl">
+      <div className="flex   w-full  p-10 mt-20 bg-gray-900 text-gray-100 gap-6 rounded-xl">
         {/* left pane */}
-        <div className="bg-gray-700 p-6 rounded-xl">
+        <div className="flex-grow bg-gray-700 p-6 rounded-xl">
+          <h2 className="text-2xl font-semibold mb-4">Article View</h2>
           <h2 className="text-3xl font-bold m-3">{articleTitle}</h2>
-          <p className="text-sm text-gray-400 mb-4">
+          <p className="text-xs text-green-400 m-3">
             Hits: {metadata.hits} | Last Updated: {metadata.lastUpdated} | Word
             Count: {metadata.wordCount}
           </p>
-          <p>{articleContent}</p>
+          <p className="text-md text-gray-400 m-4 p-4">{articleContent}</p>
         </div>
-        {/* right pane */}
-        <div className="bg-gray-800 p-6 rounded-xl">
+        {/* right pane
+          flex grow is all about how much a flex item should take up available space on container
+        
+        */}
+        <div className="flex-grow p-6 rounded-xl">
           <GraphVisualizationView />
         </div>
       </div>
